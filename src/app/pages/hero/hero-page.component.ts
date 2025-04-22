@@ -1,15 +1,27 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  signal,
+} from '@angular/core';
 
 @Component({
   templateUrl: './hero-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [UpperCasePipe],
 })
 export class HeroPageComponent {
   name = signal('Ironman');
   age = signal(45);
 
+  /*
+    Señal computaricada
+    heroDescription = computed(() => `${this.name()} - ${this.age()}`)
+  */
+
   getHeroDescription() {
-    return `${this.name} - ${this.age}`;
+    return `${this.name()} - ${this.age()}`;
   }
 
   changeHero() {
@@ -18,7 +30,7 @@ export class HeroPageComponent {
   }
 
   changeAge() {
-    this.age.update((currentAge) => currentAge = 60)
+    this.age.update((currentAge) => (currentAge = 60));
   }
 
   resetForm() {
