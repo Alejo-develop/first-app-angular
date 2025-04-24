@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CharacterListComponent } from '../../components/dragonball/character-list/character-list.component';
-import { Character } from '../../interfaces/character.interface';
 import { AddCharacterFormComponent } from '../../components/dragonball/add-character-form/add-character-form.component';
+import { DragonballService } from '../../services/dragonball.service';
 
 @Component({
   templateUrl: './dragonball-super-page.component.html',
@@ -9,14 +9,10 @@ import { AddCharacterFormComponent } from '../../components/dragonball/add-chara
   imports: [CharacterListComponent, AddCharacterFormComponent],
 })
 export class DragonballSuperPageComponent {
-  characters = signal<Character[]>([
-    { id: 4, name: 'Yeyo', power: 10000 },
-    { id: 3, name: 'Gohan', power: 1100 },
-  ]);
+  // Ejemplos de inyeccion de dependencias para los servicios
+  // constructor(
+  //   public dragonballService: DragonballService
+  // ){}
 
-  addNewCharacter(character: Character){
-    this.characters.update(
-      (list) => [...list, character]
-    )
-  }
+  public dragonballService = inject(DragonballService);
 }
