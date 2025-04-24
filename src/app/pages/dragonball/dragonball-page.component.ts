@@ -1,10 +1,5 @@
 import { Component, signal } from '@angular/core';
-
-interface Character {
-  id: number;
-  name: string;
-  power: number;
-}
+import { Character } from '../../interfaces/character.interface';
 
 @Component({
   templateUrl: './dragonball-page.component.html',

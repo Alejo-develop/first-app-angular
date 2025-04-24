@@ -1,0 +1,23 @@
+<h3>Add new DragonBall character: {{ name() }}</h3>
+<input
+  type="text"
+  class="form-control"
+  placeholder="Name"
+  [value]="name()"
+  (change)="name.set(txtName.value)"
+  (input)="name.set(txtName.value)"
+  #txtName
+/>
+
+<h3>Power: {{ power() }}</h3>
+<input
+  type="number"
+  class="form-control mt-2"
+  placeholder="Power"
+  [value]="power()"
+  (change)="power.set(+numPower.value)"
+  (input)="power.set(+numPower.value)"
+  #numPower
+/>
+
+<button (click)="addCharacter()" class="mt-2 btn btn-primary">Puchear</button>

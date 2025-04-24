@@ -1,0 +1,15 @@
+<h1>Dragon ball</h1>
+<hr />
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <dragonball-add-character-form (newCharacter)="addNewCharacter($event)" />
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <dragonball-character-list
+      listName="Characters list"
+      [characters]="characters()"
+    />
+  </div>
+</section>
